@@ -162,3 +162,8 @@ def get_net_connections(my_choice="inet"):
     else:
         connections = psutil.net_connections(kind=my_choice)
         return jsonify(connections)
+
+
+def get_boot_time():
+    boot_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(psutil.boot_time()))
+    return jsonify({"boot_time": boot_time})

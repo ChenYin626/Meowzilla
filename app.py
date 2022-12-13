@@ -141,6 +141,12 @@ def get_net_connections():
         return jsonify({"error": "title is required"}), 400
 
 
+@app.route("/server/boot_time", methods=["GET"])
+# @permission
+def get_boot_time():
+    return server.get_boot_time()
+
+
 @app.route("/hello/tasks", methods=['POST'])
 @permission
 def create_task():
@@ -190,4 +196,4 @@ def cmd_vsftpd():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
